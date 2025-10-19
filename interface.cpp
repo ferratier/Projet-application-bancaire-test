@@ -16,17 +16,39 @@ void Interface::connection()
     std::string id_test;
     std::string password_test;
 
-    std::cout << "Entrez votre identifient" << std::endl;
+    std::cout << "Entrez votre identifiant: ";
     std::cin >> id_test;
-    for (auto it = users.begin(); it != users.end(); ++it){
-        if (*it.get_id() == id_test){
-            std::cout << "Entrez votre mot de passe" << std::endl;
-            std::cin >> password_test;
-            if ()
+
+    // Chercher l'utilisateur par identifiant
+    User* user_found = nullptr;     // On crée un pointeur qui va servir à stocker l'utilisateur trouvé
+    for (User* u : users) {
+        if (u && u->get_id() == id_test) {  // Si l'utilisateur existe et son ID correspond
+            user_found = u;
+            break;
         }
     }
-    
 
+    if (!user_found) {
+        std::cout << "Identifiant introuvable." << std::endl;
+        return;
+    }
+
+    const int max_attempts = 3;
+    std::cout << "Entrez votre mot de passe: ";
+    for (int attempt = 1; attempt <= max_attempts; ++attempt) {
+        std::cin >> password_test;
+        if (user_found->get_password() == password_test) {
+            std::cout << "Bienvenue, " << user_found->get_id() << "!" << std::endl;
+            // Suite pour passer à l'interface utilisateur (menu admin/client)
+            return;
+        }
+        if (attempt < max_attempts) {
+            std::cout << "Mot de passe incorrect. Il vous reste " << (max_attempts - attempt) << " essais." << std::endl;
+            std::cout << "Réessayez: ";
+        } else {
+            std::cout << "Trop d'essais. Connexion annulée." << std::endl;
+        }
+    }
 }
 
 void Interface::disconnection()

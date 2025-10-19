@@ -21,7 +21,6 @@ int main(){
         std::cout << "\nMenu Principal:" << std::endl;
         std::cout << "1. Connection" << std::endl;
         std::cout << "2. Quitter" << std::endl;
-        
         int choix;
         std::cin >> choix;
         
