@@ -1,4 +1,4 @@
-#include "interface.h"
+#include "menu.h"
 #include "json.hpp"
 #include <iostream>
 #include <fstream>
@@ -7,11 +7,11 @@
 using json = nlohmann::json;
 #include "admin.h"
 #include "client.h"
-Interface::Interface()
+Menu::Menu()
 {
 }
 
-void Interface::connection()
+void Menu::connection()
 {
     std::string id_test;
     std::string password_test;
@@ -51,17 +51,17 @@ void Interface::connection()
     }
 }
 
-void Interface::disconnection()
+void Menu::disconnection()
 {
 
 }
 
-void Interface::add_user(User *user)
+void Menu::add_user(User *user)
 {
     users.push_back(user);
 }
 
-void Interface::del_user(User *user)
+void Menu::del_user(User *user)
 {
     for (auto it = users.begin(); it != users.end(); ++it) {
         if (*it == user) {
@@ -71,12 +71,12 @@ void Interface::del_user(User *user)
     }
 }
 
-unsigned int Interface::get_user_count()
+unsigned int Menu::get_user_count()
 {
     return users.size();
 }
 
-User *Interface::get_user(unsigned int index)
+User *Menu::get_user(unsigned int index)
 {
     if (index < get_user_count()){
         return users[index];
@@ -84,7 +84,7 @@ User *Interface::get_user(unsigned int index)
     return nullptr;
 }
 
-void Interface::saveToJson() {
+void Menu::saveToJson() {
     // Créer un objet JSON
     json data;
     
@@ -122,7 +122,7 @@ void Interface::saveToJson() {
 }
 
 // Charger les données depuis le JSON
-void Interface::loadFromJson() {
+void Menu::loadFromJson() {
     // Ouvrir le fichier
     std::ifstream file("bank_data.json");
     if(!file.is_open()) { // cas où il n'y a pas encore de fichier de sauvgarde

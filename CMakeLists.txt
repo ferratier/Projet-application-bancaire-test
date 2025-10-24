@@ -12,7 +12,7 @@ add_executable(BankApp
     user.cpp
     admin.cpp
     client.cpp
-    interface.cpp
+    menu.cpp
 )
 
 

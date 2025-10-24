@@ -2,18 +2,18 @@
 #include "user.h"
 #include "admin.h"
 #include "client.h"
-#include "interface.h"
+#include "menu.h"
 
 int main(){
-    Interface interface;
+    Menu menu;
     
     // Charger les données au démarrage
-    interface.loadFromJson();
+    menu.loadFromJson();
     
     // Si c'est la première exécution (pas d'utilisateurs)
-    if(interface.get_user_count() == 0) {
+    if(menu.get_user_count() == 0) {
         Admin* admin = new Admin("Lucas", "jesuisadmin");
-        interface.add_user(admin);
+        menu.add_user(admin);
     }
     
     bool running = true;
@@ -26,7 +26,7 @@ int main(){
         
         switch(choix) {
             case 1:
-                interface.connection();
+                menu.connection();
                 break;
             case 2:
                 running = false;
@@ -37,11 +37,11 @@ int main(){
     }
 
     // Sauvegarder avant de quitter
-    interface.saveToJson();
+    menu.saveToJson();
     
     // Nettoyer la mémoire
-    for(unsigned int i = 0; i < interface.get_user_count(); i++) {
-        User* user = interface.get_user(i);
+    for(unsigned int i = 0; i < menu.get_user_count(); i++) {
+        User* user = menu.get_user(i);
         delete user;
     }
 

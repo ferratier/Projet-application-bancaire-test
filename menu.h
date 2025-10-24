@@ -1,5 +1,5 @@
-#ifndef INTERFACE_H
-#define INTERFACE_H
+#ifndef MENU_H
+#define MENU_H
 #include "user.h"
 
 // forward declarations to avoid circular includes ???? (à voir)
@@ -11,10 +11,10 @@ class Admin;
 #include <fstream>
 #include <sstream>
 
-class Interface
+class Menu
 {
     public:
-        Interface();
+        Menu();
         void connection();
         void disconnection();
         void add_user(User* user);
