@@ -3,9 +3,10 @@
 #include "admin.h"
 #include "client.h"
 #include "menu.h"
-
+#include <string>
 int main(){
     Menu menu;
+    User* currentUser = nullptr;
     
     // Charger les données au démarrage
     menu.loadFromJson();
@@ -26,11 +27,11 @@ int main(){
         
         switch(choix) {
             case 1:
-                menu.connection();
+                currentUser = menu.connection();    //la méthode connection renvoie l'utilisateur courrant
                 break;
             case 2:
                 running = false;
-                break;
+                break;                
             default:
                 std::cout << "Choix invalide" << std::endl;
         }

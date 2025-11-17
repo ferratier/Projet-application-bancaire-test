@@ -11,7 +11,7 @@ Menu::Menu()
 {
 }
 
-void Menu::connection()
+User* Menu::connection()
 {
     std::string id_test;
     std::string password_test;
@@ -30,7 +30,7 @@ void Menu::connection()
 
     if (!user_found) {
         std::cout << "Identifiant introuvable." << std::endl;
-        return;
+        return user_found;
     }
 
     const int max_attempts = 3;
@@ -40,7 +40,7 @@ void Menu::connection()
         if (user_found->get_password() == password_test) {
             std::cout << "Bienvenue, " << user_found->get_id() << "!" << std::endl;
             // Suite pour passer à l'interface utilisateur (menu admin/client)
-            return;
+            return user_found;
         }
         if (attempt < max_attempts) {
             std::cout << "Mot de passe incorrect. Il vous reste " << (max_attempts - attempt) << " essais." << std::endl;
@@ -82,6 +82,11 @@ User *Menu::get_user(unsigned int index)
         return users[index];
     }
     return nullptr;
+}
+
+std::vector<User *> &Menu::getUsers()
+{
+    return users;
 }
 
 void Menu::saveToJson() {
