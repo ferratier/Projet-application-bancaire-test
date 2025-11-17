@@ -49,6 +49,7 @@ User* Menu::connection()
             std::cout << "Trop d'essais. Connexion annulée." << std::endl;
         }
     }
+    return user_found;
 }
 
 void Menu::disconnection()
