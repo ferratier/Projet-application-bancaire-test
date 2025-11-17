@@ -11,7 +11,7 @@ Menu::Menu()
 {
 }
 
-void Menu::connection()
+User* Menu::connection()
 {
     std::string id_test;
     std::string password_test;
@@ -49,6 +49,7 @@ void Menu::connection()
             std::cout << "Trop d'essais. Connexion annulée." << std::endl;
         }
     }
+    return user_found;
 }
 
 void Menu::disconnection()

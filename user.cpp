@@ -15,3 +15,8 @@ std::string User::get_password()
 {
     return password_;
 }
+
+void User::change_password(User user, std::string newPassword)
+{
+    user.password_ = newPassword;
+}

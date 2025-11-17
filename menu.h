@@ -15,7 +15,7 @@ class Menu
 {
     public:
         Menu();
-        void connection();
+        User* connection();
         void disconnection();
         void add_user(User* user);
         void del_user(User* user);
