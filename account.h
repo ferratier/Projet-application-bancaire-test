@@ -9,6 +9,7 @@ public:
     Account(std::string iban_, std::string account_name_);
 
     float getBalance() const;
+    std::string getIban() const;
     void getInfo() const;
     int deposit(float amount_);
     int withdraw(float amount_);

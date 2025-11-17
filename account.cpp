@@ -9,6 +9,11 @@ float Account::getBalance() const
     return balance;
 }
 
+std::string Account::getIban() const
+{
+    return iban;
+}
+
 void Account::getInfo() const
 {
     std::cout << "--- Account informations ---" << std::endl;
