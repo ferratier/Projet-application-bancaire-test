@@ -8,7 +8,8 @@ class Client : public User
     public:
         Client(std::string id, std::string password) : User(id, password) {}
     private:
-
+        std::string nom_;
+        std::string prenom_;
 };
 
 #endif

@@ -6,12 +6,12 @@ User::User(std::string id, std::string password)
     password_ = password;
 }
 
-std::string User::get_id()
-{
-    return id_;
-}
-
-std::string User::get_password()
+const std::string& User::get_password() const
 {
     return password_;
+}
+
+const std::string& User::get_id() const
+{
+    return id_;
 }
