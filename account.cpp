@@ -14,13 +14,9 @@ std::string Account::getIban() const
     return iban;
 }
 
-void Account::getInfo() const
+std::string Account::getName() const
 {
-    std::cout << "--- Account informations ---" << std::endl;
-    std::cout << "Name: " << account_name << std::endl;
-    std::cout << "IBAN : " << iban << std::endl;
-    std::cout << "Balance : " << balance << std::endl;
-    std::cout << "----------------------------" << std::endl;
+    return account_name;
 }
 
 int Account::deposit(float amount_)
@@ -54,4 +50,13 @@ int Account::transfertMoney(float amount_, Account &account_to_receive)
         std::cout << "Error: Transfert abort" << std::endl;
         return 1;
     }
+}
+
+void Account::printAccountInfo() const
+{
+    std::cout << "--- Account informations ---" << std::endl;
+    std::cout << "Name: " << account_name << std::endl;
+    std::cout << "IBAN : " << iban << std::endl;
+    std::cout << "Balance : " << balance << std::endl;
+    std::cout << "----------------------------" << std::endl;
 }

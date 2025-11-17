@@ -10,10 +10,11 @@ public:
 
     float getBalance() const;
     std::string getIban() const;
-    void getInfo() const;
+    std::string getName() const;
     int deposit(float amount_);
     int withdraw(float amount_);
     int transfertMoney(float amount_, Account& account_to_receive);
+    void printAccountInfo() const;
 
 private:
     float balance=0;

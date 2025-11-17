@@ -5,6 +5,11 @@
 #include "menu.h"
 
 int main(){
+    Client test("JP", "password");
+    Account compte("FR76", "Compte courant");
+    test.addAccount(compte);
+    Account* ok = test.getAccountByIBAN("FR76");
+    ok->printAccountInfo();
     Menu menu;
     
     // Charger les données au démarrage
