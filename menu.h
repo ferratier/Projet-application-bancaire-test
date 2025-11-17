@@ -15,12 +15,13 @@ class Menu
 {
     public:
         Menu();
-        void connection();
+        User* connection();
         void disconnection();
         void add_user(User* user);
         void del_user(User* user);
         unsigned int get_user_count();
         User* get_user(unsigned int index);
+        std::vector<User*>& getUsers();
         
         // Méthodes de sauvegarde/chargement JSON
         void saveToJson();

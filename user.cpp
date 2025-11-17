@@ -6,12 +6,17 @@ User::User(std::string id, std::string password)
     password_ = password;
 }
 
-std::string User::get_id()
+const std::string& User::get_password() const
+{
+    return password_;
+}
+
+const std::string& User::get_id() const
 {
     return id_;
 }
 
-std::string User::get_password()
+void User::change_password(User user, std::string newPassword)
 {
-    return password_;
+    user.password_ = newPassword;
 }

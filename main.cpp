@@ -3,7 +3,7 @@
 #include "admin.h"
 #include "client.h"
 #include "menu.h"
-
+#include <string>
 int main(){
     Client test("JP", "password");
     Account compte("FR76", "Compte courant");
@@ -11,6 +11,7 @@ int main(){
     Account* ok = test.getAccountByIBAN("FR76");
     ok->printAccountInfo();
     Menu menu;
+    User* currentUser = nullptr;
     
     // Charger les données au démarrage
     menu.loadFromJson();
@@ -31,11 +32,11 @@ int main(){
         
         switch(choix) {
             case 1:
-                menu.connection();
+                currentUser = menu.connection();    //la méthode connection renvoie l'utilisateur courrant
                 break;
             case 2:
                 running = false;
-                break;
+                break;                
             default:
                 std::cout << "Choix invalide" << std::endl;
         }
