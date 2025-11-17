@@ -8,9 +8,8 @@ class Admin : public User
 {
     public:
         Admin(std::string id, std::string password) : User(id, password) {}
-        void create_client(std::string nom, std::string prenom);
+        void create_client(Menu& menu);
         void delete_client(Client* client);
-
 
     private:
 

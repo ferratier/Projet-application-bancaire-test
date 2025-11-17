@@ -21,6 +21,7 @@ class Menu
         void del_user(User* user);
         unsigned int get_user_count();
         User* get_user(unsigned int index);
+        std::vector<User*>& getUsers();
         
         // Méthodes de sauvegarde/chargement JSON
         void saveToJson();
